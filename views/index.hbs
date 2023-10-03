@@ -1,1 +1,32 @@
-<h1>Example App: Home</h1>
+<div class="container mt-5">
+  <!-- search bar -->
+  <div class="row" id="search-bar">
+    <div class="col-12">
+      <form action="/movies">
+        <div class="input-group mb-3">
+          <input type="text" name="search" class="form-control" placeholder="Enter movie name to search..."
+            aria-label="Movie Name..." aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- movie list -->
+  <div class="row" id="data-panel">
+    {{#each movies as |movie|}}
+    <div class="col-sm-3">
+      <a href="/movie/{{movie.id}}" class="text-secondary">
+        <div class="card mb-2">
+          <img class="card-img-top" src="{{../BASE_IMG_URL}}{{movie.image}}"
+            alt="Card image cap">
+          <div class="card-body movie-item-body">
+            <h6 class="card-title">{{movie.title}}</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+  {{/each}}
+  </div>
+</div>
